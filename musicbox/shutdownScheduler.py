@@ -7,9 +7,8 @@ class ShutdownScheduler:
     shutdownCommand = "sudo shutdown -h now"
 
     # shutdownTime in Minuten
-    def __init__(self, mp3_player, rfid_reader, shutdown_time):
+    def __init__(self, mp3_player, shutdown_time):
         self.mp3Player = mp3_player
-        self.rfidReader = rfid_reader
         if shutdown_time != 0:
             self.idleCounter = 0
             self.shutdownIdleCounter = shutdown_time * 60 / self.checkIdleInterval
@@ -26,7 +25,6 @@ class ShutdownScheduler:
             self.idleCounter = self.idleCounter + 1
 
         if self.idleCounter >= self.shutdownIdleCounter:
-            self.rfidReader.antenna_off()
             os.system(self.shutdownCommand)
         else:
             self._set_timer()

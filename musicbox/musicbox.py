@@ -6,11 +6,16 @@ from buttonHandler import ButtonHandler
 from importer import Importer
 from settings import Settings
 from shutdownScheduler import ShutdownScheduler
+import signal
+import sys
 
+
+# some base definitions
 base_path = "/home/pi/musicbox/"
 music_path = base_path + "music"
 shutdown_time = 30 # shutdown after 30 minutes
 
+# instanciate all classes
 settings = Settings(base_path)
 speaker_handler = SpeakerHandler()
 mp3_player = MP3Player(music_path, settings, speaker_handler)
@@ -18,8 +23,18 @@ button_handler = ButtonHandler(mp3_player)
 folder_handler = FolderHandler(music_path)
 importer = Importer(music_path)
 rfid_reader = RFIDReader()
-shutdown_scheduler = ShutdownScheduler(mp3_player, rfid_reader, shutdown_time)
+shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time)
 
+# define the exit handler to switch off speaker and antenna
+def exit_handler(signum = None, frame = None):
+    speaker_handler.speakerOff()
+    rfid_reader.antenna_off()
+    sys.exit(0)
+
+for sig in [signal.SIGTERM, signal.SIGINT, signal.SIGHUP, signal.SIGQUIT]:
+    signal.signal(sig , exit_handler)
+
+# start main loop that waits for tags
 tag = ""
 while True:
     tag = rfid_reader.wait_for_tag_change(tag)
