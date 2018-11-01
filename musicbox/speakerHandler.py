@@ -9,8 +9,8 @@ class SpeakerHandler:
         GPIO.setup(self.mutePin, GPIO.OUT, initial = 0)
         GPIO.output(self.mutePin, 1)
 
-    def speakerOff(self):
+    def speaker_off(self):
         GPIO.output(self.mutePin, 1)
 
-    def speakerOn(self):
+    def speaker_on(self):
         GPIO.output(self.mutePin, 0)

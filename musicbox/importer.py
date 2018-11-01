@@ -1,6 +1,7 @@
 import os
 from shutil import copytree
 
+
 class Importer:
     importPath = "/media/usb/"
 

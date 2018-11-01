@@ -27,7 +27,7 @@ shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time)
 
 # define the exit handler to switch off speaker and antenna
 def exit_handler(signum = None, frame = None):
-    speaker_handler.speakerOff()
+    speaker_handler.speaker_off()
     rfid_reader.antenna_off()
     sys.exit(0)
 

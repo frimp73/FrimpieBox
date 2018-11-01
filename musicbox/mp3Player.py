@@ -26,7 +26,7 @@ class MP3Player:
         self._set_volume()
 
     def play(self, folder):
-        self.speakerHandler.speakerOn()
+        self.speakerHandler.speaker_on()
         if (folder != self.last_played_folder) | self.is_stopped():
             print "Start player (" + folder + ")..."
             self.last_played_folder = folder
@@ -39,19 +39,19 @@ class MP3Player:
     def stop(self):
         print "Stop player..."
         os.system(self.stopCommand)
-        self.speakerHandler.speakerOff()
+        self.speakerHandler.speaker_off()
 
     def pause(self):
         print "Pause player..."
         os.system(self.pauseCommand)
-        self.speakerHandler.speakerOff()
+        self.speakerHandler.speaker_off()
 
     def next(self):
         print "Next track..."
         os.system(self.nextCommand)
 	# if there's nothing more to play, switch speaker off
 	if self.is_stopped():
-            self.speakerHandler.speakerOff()
+            self.speakerHandler.speaker_off()
 
 
     def previous(self):
@@ -59,14 +59,14 @@ class MP3Player:
         os.system(self.previousCommand)
 	# if there's nothing more to play, switch speaker off
 	if self.is_stopped():
-            self.speakerHandler.speakerOff()
+            self.speakerHandler.speaker_off()
 
-    def volumeUp(self):
+    def volume_up(self):
 	if self.volume <= (100 - self.volumeSteps):
 	    self.volume += self.volumeSteps
         self._set_volume()
 
-    def volumeDown(self):
+    def volume_down(self):
 	if self.volume >= self.volumeSteps:
 	    self.volume -= self.volumeSteps
         self._set_volume()
