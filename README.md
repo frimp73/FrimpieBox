@@ -11,7 +11,7 @@ This way the kids can choose the radioplay by a corresponding Skylander.
 1. Automatical association of a radioplay with an RFID tag
 1. Import a new radioplay via USB stick 
 1. Play a radioplay by placing an associated RFID tag
-1. Pausing radioplay by removing of the RFID tag
+1. Pausing radioplay by removing the RFID tag
 1. Shutdown after 30 minutes inactivity
 1. Amplifier is just activated when needed
 1. Volume setting is persisted
