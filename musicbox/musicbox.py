@@ -26,7 +26,7 @@ rfid_reader = RFIDReader()
 shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time)
 
 # define the exit handler to switch off speaker and antenna
-def exit_handler(signum = None, frame = None):
+def exit_handler():
     speaker_handler.speaker_off()
     rfid_reader.antenna_off()
     sys.exit(0)
@@ -55,4 +55,3 @@ while True:
                 mp3_player.play(folder)
             else:
                 print "No folder assigned."
-

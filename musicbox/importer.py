@@ -9,8 +9,8 @@ class Importer:
         self.basePath = base_path
 
     def new_music_available(self):
-        importFolderContent = os.listdir(self.importPath)
-        return len(importFolderContent) > 0
+        import_folder_content = os.listdir(self.importPath)
+        return len(import_folder_content) > 0
         
     def import_new_music(self, tag):
         new_music_path = os.path.join(self.basePath, tag)

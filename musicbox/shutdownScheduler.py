@@ -3,7 +3,7 @@ from threading import Timer
 
 
 class ShutdownScheduler:
-    checkIdleInterval = 10 # Sekunden
+    checkIdleInterval = 10.0 # Sekunden
     shutdownCommand = "sudo shutdown -h now"
 
     # shutdownTime in Minuten
@@ -16,11 +16,11 @@ class ShutdownScheduler:
             self._set_timer()
 
     def _set_timer(self):
-        Timer(self.checkIdleInterval, self._check_idle_state, ()).start()
+        Timer(self.checkIdleInterval, self._check_idle_state).start()
 
     def _check_idle_state(self):
         if self.mp3Player.is_playing():
-            self.idleCounter = 0;
+            self.idleCounter = 0
         else:
             self.idleCounter = self.idleCounter + 1
 

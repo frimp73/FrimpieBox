@@ -16,11 +16,11 @@ class MP3Player:
     volumeCommand = playerPath + " --volume="
     infoCommand = "--info"
 
-    def __init__(self, base_path, settings, speakerHandler):
+    def __init__(self, base_path, settings, speaker_handler):
         self.basePath = base_path
         self.settings = settings
         self.volume = settings.volume
-        self.speakerHandler = speakerHandler
+        self.speakerHandler = speaker_handler
         # initialize mocp server
         os.system(self.startPlayer)
         self._set_volume()
@@ -49,26 +49,26 @@ class MP3Player:
     def next(self):
         print "Next track..."
         os.system(self.nextCommand)
-	# if there's nothing more to play, switch speaker off
-	if self.is_stopped():
+        # if there's nothing more to play, switch speaker off
+        if self.is_stopped():
             self.speakerHandler.speaker_off()
 
 
     def previous(self):
         print "Previous track..."
         os.system(self.previousCommand)
-	# if there's nothing more to play, switch speaker off
-	if self.is_stopped():
+        # if there's nothing more to play, switch speaker off
+        if self.is_stopped():
             self.speakerHandler.speaker_off()
 
     def volume_up(self):
-	if self.volume <= (100 - self.volumeSteps):
-	    self.volume += self.volumeSteps
+        if self.volume <= (100 - self.volumeSteps):
+            self.volume += self.volumeSteps
         self._set_volume()
 
     def volume_down(self):
-	if self.volume >= self.volumeSteps:
-	    self.volume -= self.volumeSteps
+        if self.volume >= self.volumeSteps:
+            self.volume -= self.volumeSteps
         self._set_volume()
 
     def is_stopped(self):

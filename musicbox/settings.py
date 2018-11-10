@@ -1,8 +1,8 @@
 class Settings:
     settingsFile = "settings"
     
-    def __init__(self, basePath):
-        self.settingsFile = basePath + self.settingsFile
+    def __init__(self, base_path):
+        self.settingsFile = base_path + self.settingsFile
         with open(self.settingsFile, "r") as text_file:
             self.volume = int(text_file.readline())
             text_file.close()
