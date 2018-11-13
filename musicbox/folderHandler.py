@@ -15,7 +15,7 @@ class FolderHandler:
         if os.path.exists(tag_folder_path):
             return tag_folder
 
-        for entry in os.listdir(self.basePath):
+        for entry in sorted(os.listdir(self.basePath), key=str.lower):
             if not entry.isdigit():
                 entry_path = os.path.join(self.basePath, entry)
                 print entry_path
