@@ -16,10 +16,12 @@ class FolderHandler:
             return tag_folder
 
         for entry in sorted(os.listdir(self.basePath), key=str.lower):
-            if not entry.isdigit():
+            # just files without digits or max 3 chars
+            if (not entry.isdigit()) or (len(entry) < 4):
                 entry_path = os.path.join(self.basePath, entry)
                 print entry_path
                 if os.path.isdir(entry_path):
                     os.rename(entry_path, tag_folder_path)
                     return tag_folder
         return ""
+
