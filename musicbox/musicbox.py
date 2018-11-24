@@ -5,6 +5,7 @@ from speakerHandler import SpeakerHandler
 from buttonHandler import ButtonHandler
 from importer import Importer
 from settings import Settings
+from ledHandler import LedHandler
 from shutdownScheduler import ShutdownScheduler
 import signal
 import sys
@@ -23,6 +24,7 @@ button_handler = ButtonHandler(mp3_player)
 folder_handler = FolderHandler(music_path)
 importer = Importer(music_path)
 rfid_reader = RFIDReader()
+led_handler = LedHandler()
 shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time)
 
 
@@ -30,6 +32,7 @@ shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time)
 def exit_handler(signum=None, frame=None):
     speaker_handler.speaker_off()
     rfid_reader.antenna_off()
+    led_handler.shutdown()
     sys.exit(0)
 
 
