@@ -25,11 +25,13 @@ folder_handler = FolderHandler(music_path)
 importer = Importer(music_path)
 rfid_reader = RFIDReader()
 led_handler = LedHandler()
+
 shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time)
 
 
 # define the exit handler to switch off speaker and antenna
 def exit_handler(signum=None, frame=None):
+    shutdown_scheduler.shutdown()
     speaker_handler.speaker_off()
     rfid_reader.antenna_off()
     led_handler.shutdown()
@@ -61,3 +63,4 @@ while True:
                 mp3_player.play(folder)
             else:
                 print "No folder assigned."
+

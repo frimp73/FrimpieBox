@@ -15,8 +15,13 @@ class ShutdownScheduler:
             print "shutdown after " + str(shutdown_time) + " minutes"
             self._set_timer()
 
+    def shutdown(self):
+        if self.timer.is_alive():
+            self.timer.cancel()
+
     def _set_timer(self):
-        Timer(self.checkIdleInterval, self._check_idle_state).start()
+        self.timer = Timer(self.checkIdleInterval, self._check_idle_state)
+        self.timer.start()
 
     def _check_idle_state(self):
         if self.mp3Player.is_playing():
