@@ -7,8 +7,9 @@ class ShutdownScheduler:
     shutdownCommand = "sudo shutdown -h now"
 
     # shutdownTime in Minuten
-    def __init__(self, mp3_player, shutdown_time):
+    def __init__(self, mp3_player, shutdown_time, speaker_handler):
         self.mp3Player = mp3_player
+        self.speakerHandler = speaker_handler
         if shutdown_time != 0:
             self.idleCounter = 0
             self.shutdownIdleCounter = shutdown_time * 60 / self.checkIdleInterval
@@ -28,6 +29,7 @@ class ShutdownScheduler:
             self.idleCounter = 0
         else:
             self.idleCounter = self.idleCounter + 1
+            self.speakerHandler.speaker_off()
 
         if self.idleCounter >= self.shutdownIdleCounter:
             os.system(self.shutdownCommand)

@@ -18,3 +18,4 @@ class LedHandler:
     def shutdown(self):
         GPIO.output(self.readyPin, 0)
         GPIO.output(self.offPin, 1)
+

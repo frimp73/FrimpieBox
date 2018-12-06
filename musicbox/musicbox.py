@@ -26,7 +26,7 @@ importer = Importer(music_path)
 rfid_reader = RFIDReader()
 led_handler = LedHandler()
 
-shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time)
+shutdown_scheduler = ShutdownScheduler(mp3_player, shutdown_time, speaker_handler)
 
 
 # define the exit handler to switch off speaker and antenna
