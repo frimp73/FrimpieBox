@@ -15,7 +15,15 @@ This way the kids can choose the radioplay by a corresponding Skylander.
 1. Shutdown after 30 minutes inactivity
 1. Amplifier is just activated when needed
 1. Volume setting is persisted
+1. LED control to show the state of the box
 
-# Note
-The Code is still Python 2.7 code and probably quite "amateurish". 
-Since this was my first experience with Python - please be lenient with me and feel free to improve it ;-)  
+# Version history
+- [v1.1.2](https://github.com/frimp73/FrimpieBox/releases/tag/v1.1.2)
+- [v1.1.1](https://github.com/frimp73/FrimpieBox/releases/tag/v1.1.1)
+- [v1.1.0](https://github.com/frimp73/FrimpieBox/releases/tag/v1.1.0)
+- [v1.0.2](https://github.com/frimp73/FrimpieBox/releases/tag/v1.0.2)
+- [v1.0.1](https://github.com/frimp73/FrimpieBox/releases/tag/v1.0.1)
+- [v1.0.0](https://github.com/frimp73/FrimpieBox/releases/tag/v1.0.0)
+
+
+
