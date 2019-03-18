@@ -28,34 +28,34 @@ class MP3Player:
     def play(self, folder):
         self.speakerHandler.speaker_on()
         if (folder != self.last_played_folder) | self.is_stopped():
-            print "Start player (" + folder + ")..."
+            print("Start player (" + folder + ")...")
             self.last_played_folder = folder
             folder_path = os.path.join(self.basePath, folder, "*")
             os.system(self.playCommand + " " + folder_path)
         else:
-            print "Continue " + folder + "..."
+            print("Continue " + folder + "...")
             os.system(self.continueCommand)
 
     def stop(self):
-        print "Stop player..."
+        print("Stop player...")
         os.system(self.stopCommand)
         self.speakerHandler.speaker_off()
 
     def pause(self):
-        print "Pause player..."
+        print("Pause player...")
         os.system(self.pauseCommand)
         self.speakerHandler.speaker_off()
 
-    def next(self):
-        print "Next track..."
+    def next_track(self):
+        print("Next track...")
         os.system(self.nextCommand)
         # if there's nothing more to play, switch speaker off
         if self.is_stopped():
             self.speakerHandler.speaker_off()
 
 
-    def previous(self):
-        print "Previous track..."
+    def previous_track(self):
+        print("Previous track...")
         os.system(self.previousCommand)
         # if there's nothing more to play, switch speaker off
         if self.is_stopped():
@@ -74,14 +74,14 @@ class MP3Player:
     def is_stopped(self):
         p = Popen([self.playerPath,"--info"], stdout=PIPE)
         output = p.communicate()
-        return output[0].startswith("State: STOP")
+        return output[0].startswith(b"State: STOP")
 
     def is_playing(self):
         p = Popen([self.playerPath,"--info"], stdout=PIPE)
         output = p.communicate()
-        return output[0].startswith("State: PLAY")
+        return output[0].startswith(b"State: PLAY")
 
     def _set_volume(self):
-        print "Volume " + str(self.volume)
+        print("Volume " + str(self.volume))
         os.system(self.volumeCommand + str(self.volume))
         self.settings.store_volume(self.volume)

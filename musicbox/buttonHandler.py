@@ -19,14 +19,14 @@ class ButtonHandler:
 
     def _button_pressed(self, button):
         if button == self.volumeUpPin:
-            print "Volume +"
+            print("Volume +")
             self.mp3Player.volume_up()
         elif button == self.volumeDownPin:
-            print "Volume -"
+            print("Volume -")
             self.mp3Player.volume_down()
         elif button == self.nextPin:
-            print "Next"
-            self.mp3Player.next()
+            print("Next")
+            self.mp3Player.next_track()
         elif button == self.previousPin:
-            print "Previous"
-            self.mp3Player.previous()
+            print("Previous")
+            self.mp3Player.previous_track()

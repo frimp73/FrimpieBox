@@ -47,20 +47,20 @@ tag = ""
 while True:
     tag = rfid_reader.wait_for_tag_change(tag)
     if tag == "":
-        print tag + " removed."
+        print(tag + " removed.")
         mp3_player.pause()
     else:
-        print str(tag) + " detected."
+        print(str(tag) + " detected.")
         folder = folder_handler.get_folder_by_tag(tag)
         if folder != "":
             mp3_player.play(folder)
         else:
-            print "Tag is new..."
+            print("Tag is new...")
             if importer.new_music_available():
-                print "New music for import found."
+                print("New music for import found.")
                 folder = str(tag)
                 importer.import_new_music(folder)
                 mp3_player.play(folder)
             else:
-                print "No folder assigned."
+                print("No folder assigned.")
 

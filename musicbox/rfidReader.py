@@ -18,7 +18,7 @@ class RFIDReader:
         return self.last_tag
 
     def antenna_off(self):
-        print "Antenna Off"
+        print("Antenna Off")
         self.reader.AntennaOff()
 
     def _wait_for_tag(self):
