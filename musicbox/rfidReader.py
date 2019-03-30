@@ -47,6 +47,6 @@ class RFIDReader:
         return new_tag
 
     def _read_tag(self):
-        (status, uid) = self.reader.MFRC522_Anticoll()
+        (status, uid) = self.reader.MFRC522_Anticoll1()
         tag = "".join(str(e) for e in uid)
         return tag
