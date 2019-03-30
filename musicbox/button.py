@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import thread
+import _thread
 
 
 class Button:
@@ -11,7 +11,7 @@ class Button:
         GPIO.add_event_detect(pin, GPIO.FALLING, callback=self._measure, bouncetime = 300)
 
     def _measure(self, pin):
-        thread.start_new_thread(self._check_if_button_is_still_pressed, (pin, ))
+        _thread.start_new_thread(self._check_if_button_is_still_pressed, (pin, ))
 
     def _check_if_button_is_still_pressed(self, pin):
         time.sleep(0.1)

@@ -13,7 +13,7 @@ class ShutdownScheduler:
         if shutdown_time != 0:
             self.idleCounter = 0
             self.shutdownIdleCounter = shutdown_time * 60 / self.checkIdleInterval
-            print "shutdown after " + str(shutdown_time) + " minutes"
+            print("shutdown after " + str(shutdown_time) + " minutes")
             self._set_timer()
 
     def shutdown(self):
