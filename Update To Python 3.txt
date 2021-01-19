@@ -10,3 +10,6 @@ Zeile
 ändern nach:
 	python3 /home/pi/musicbox/musicbox.py &
 
+Aktiviere SPI mit 
+sudo raspi-config
+	3 Interface Options - P4 SPI
