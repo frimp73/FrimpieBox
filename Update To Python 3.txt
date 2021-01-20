@@ -1,0 +1,15 @@
+sudo apt-get remove python-rpi.gpio
+sudo apt-get remove python-dev
+
+sudo apt-get install python3-rpi.gpio
+sudo apt-get install python3-spidev
+
+sudo nano /etc/rc.local
+Zeile
+	python /home/pi/musicbox/musicbox.py & 
+ändern nach:
+	python3 /home/pi/musicbox/musicbox.py &
+
+Aktiviere SPI mit 
+sudo raspi-config
+	3 Interface Options - P4 SPI
