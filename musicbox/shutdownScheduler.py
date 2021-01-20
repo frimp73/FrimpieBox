@@ -28,8 +28,9 @@ class ShutdownScheduler:
         if self.mp3Player.is_playing():
             self.idleCounter = 0
         else:
+            if self.idleCounter == 0:
+                self.speakerHandler.speaker_off()
             self.idleCounter = self.idleCounter + 1
-            self.speakerHandler.speaker_off()
 
         if self.idleCounter >= self.shutdownIdleCounter:
             os.system(self.shutdownCommand)
