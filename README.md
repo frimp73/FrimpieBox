@@ -18,6 +18,7 @@ This way the kids can choose the radioplay by a corresponding Skylander.
 1. LED control to show the state of the box
 
 # Version history
+- [v2.0.0](https://github.com/frimp73/FrimpieBox/releases/tag/v2.0.0)
 - [v1.1.3](https://github.com/frimp73/FrimpieBox/releases/tag/v1.1.3)
 - [v1.1.2](https://github.com/frimp73/FrimpieBox/releases/tag/v1.1.2)
 - [v1.1.1](https://github.com/frimp73/FrimpieBox/releases/tag/v1.1.1)
